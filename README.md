@@ -1,40 +1,44 @@
 # neoway-challenge
 
-# Cria projeto no google cloud
+Os arquivos contidos neste repositório foram utilzados para criar o serviço encontrado em http://yawoen.joaoguilherme.me/. Os passos descritos a seguir, refletem os passos seguidos para definição da infraestrutura.
 
-# Instala cli
+## Pré-requisitos 
 
-# Seta projeto
+* Google cloud SDK instalado e configurado (https://cloud.google.com/sdk)
+* Projeto criado no Google Cloud
 
-gcloud config set project project-id
+## Definição de projeto do GCP
 
-# Cria cluster
+gcloud config set project <project-id>
 
-gcloud container clusters create yawoen-cluster --num-nodes=1
+## Criação do cluster
 
-# get-credentials
+gcloud container clusters create <cluster-name> --num-nodes=1
 
-gcloud container clusters get-credentials cluster-name
+## Definição de credenciais do cluster localmente
 
-# Define namespace
+gcloud container clusters get-credentials <cluster-name>
 
-kubectl apply -f .\yawoen-namespace.yaml
+## Aplicação do namespace
 
-# Define deployment
+kubectl apply -f yawoen-namespace.yaml
 
-kubectl apply -f .\yawoen-deployment.yaml
+## Aplicação do deployment
 
-# Define serviço
+kubectl apply -f yawoen-deployment.yaml
 
-kubectl apply -f .\yawoen-service.yaml
+## Aplicação do serviço
 
-# Define regras de acesso
+kubectl apply -f yawoen-service.yaml
 
-kubectl apply -f .\rules.yaml
+## Definição de regras de acesso
 
-# Aplica cronjobs
+kubectl apply -f rules.yaml
 
-kubectl apply -f .\up-cronjob.yaml
+## Aplicaçaõ de cronjobs (Horario de funcionamento do serviço)
+
+kubectl apply -f up-cronjob.yaml
+kubectl apply -f down-cronjob.yaml
 
 # Monitoramento
 
@@ -42,9 +46,7 @@ kubectl apply -f .\up-cronjob.yaml
 
 Kubernetes Engine > Aplicativos > PRocurar po Prometheus+Grafana 
 
-## Expor grafana
-
-### Substituir as variáveis de ambiente pelas variaveis definidas
+## Expor serviço do grafana
 
 kubectl patch svc "${APP_INSTANCE_NAME}-grafana" \
   --namespace "${NAMESPACE}" \
