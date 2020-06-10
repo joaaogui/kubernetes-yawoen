@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: yawoen
+  name: yawoen
+  namespace: yawoen
+spec:
+  clusterIP: 10.3.249.151
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30113
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: yawoen
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.196.236.83

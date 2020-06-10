@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yawoen
+  namespace: yawoen
+  labels:
+    app: yawoen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yawoen
+  template:
+    metadata:
+      labels:
+        app: yawoen
+    spec:
+      containers:
+      - name: yawoen
+        image: jwilder/whoami
+        ports:
+        - containerPort: 8000
