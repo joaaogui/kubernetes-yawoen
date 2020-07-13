@@ -55,7 +55,7 @@ kubectl apply -f up-cronjob.yaml
 kubectl apply -f down-cronjob.yaml
 ```
 
-# Monitoramento (http://grafana.yawoen.joaoguilherme.me/)
+# Monitoramento
 
 ## Adiciona Prometheus + grafana 
 
