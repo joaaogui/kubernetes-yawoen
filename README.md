@@ -1,6 +1,6 @@
-# neoway-challenge
+# kubernetes-yawoen
 
-Os arquivos contidos neste repositório foram utilzados para criar o serviço encontrado em http://yawoen.joaoguilherme.me/. Os passos descritos a seguir, refletem os passos seguidos para definição da infraestrutura.
+Os arquivos contidos neste repositório foram utilzados para criar um serviço qualquer e expor o mesmo, utilizando kubernetes na GCP. Os passos descritos a seguir, refletem os passos seguidos para definição da infraestrutura.
 
 ## Pré-requisitos 
 
